@@ -664,7 +664,18 @@ Important takeaways on strings and their uses:
 9. To repeat a strings value use the `.repeat()` method   
 
 #### Numbers 
-In JavaScript, **Numbers** are used as an 'wrapper object'
+`Number()` is a wrapper object that represents numerical data in either integers or floating-point numbers. ES6 introduced a number of constants and methods for making it eaiser to manipulate numbers in JavaScript. Numbers can be declared via the literal syntax or function syntax. When used a function, `Number(value)` converts a string or other vlaue to ther Number type. If the value can't be converted, it returns `NaN`. 
+
+```javascript
+// Example of literal syntax 
+
+
+// Example of function syntax
+```  
+
+```javascript
+
+```
 
 ### DOM Manipulation (Changes based on user actions)
 
