@@ -601,12 +601,12 @@ ES6 Defines nine specific data and structural types for JavaScript: (Six Primiti
 ```javascript 
 // Example of template literals 
 let name = 'Alexandria' // let name = "Alexandria" or let name = `Alexandria` is also acceptable
-let message = `Hello ${name}` // whern using the ${} placeholder syntax be sure to use backticks
+let message = `Hello ${name}` // when using the ${} placeholder syntax be sure to use backticks
 
 console.log(message) // will return "Hello Alexandria" 
 console.log(message.length) // will return 16
 ```
-> Although string indexing begins at zero, when returning the length of a string the index starts at 1. `str.length` is a property of strings, not a function (as seen in some other compiled and interpretted languages). 
+> Although string indexing begins at zero, when returning the length of a string the index starts at 1. `str.length` is a property of strings, not a function (as seen in some other compiled and interpreted languages). 
 
 When handling text it's important to know the ins and outs of escaping characters in a string. All special characters start with a backslash `\` (which is called the escape character). 
 
@@ -618,7 +618,7 @@ Accessing characters from within a strong is possible through two methods: acces
 // Example of accessing characters  in a string
 let str = `Value`
 
-console.log(str[0]) // will retunr the character V 
+console.log(str[0]) // will return the character V 
 console.log(str.charAt(0)) // will return the character V
 ```
 > Note that square brackets are the more modern approach to accessing string character values, and also note that strings are indexed from the number zero
@@ -664,18 +664,53 @@ Important takeaways on strings and their uses:
 9. To repeat a strings value use the `.repeat()` method   
 
 #### Numbers 
-`Number()` is a wrapper object that represents numerical data in either integers or floating-point numbers. ES6 introduced a number of constants and methods for making it eaiser to manipulate numbers in JavaScript. Numbers can be declared via the literal syntax or function syntax. When used a function, `Number(value)` converts a string or other vlaue to ther Number type. If the value can't be converted, it returns `NaN`. 
+`Number()` is a wrapper object that represents numerical data in either integers or floating-point numbers. ES6 introduced a number of constants and methods for making it easier to manipulate numbers in JavaScript. Numbers can be declared via the literal syntax or function syntax. When used a function, `Number(value)` converts a string or other value to the Number type. If the value can't be converted, it returns `NaN`. 
 
 ```javascript
-// Example of literal syntax 
-
+// Example of numeric literal syntax 
+123 
+123.00 
+123 === 123.00 
 
 // Example of function syntax
-```  
+Number('123') 
+Number('123') === 123 //returns true 
+Number("unicorn") // returns undefined 
+Number(undefined) // returns undefined
 
-```javascript
+// Examples of mathematic operations in JavaScript
+console.log(1 + 1) // will return 2 
+console.log(12 * 4) // will return 48 
+console.log(9 / 3) // will return 3
+console.log(20 % 2) // will return 0 
+console.log(2 ** 2) // will return 4
+console.log(Math.pow(2,2,)) // using the Math() function to evaluate exponents this will return 4
 
-```
+// JavaScript using floating point math for evaluation 
+0.1 + 0.2 != 0.3 
+console.log(0.1 + 0.2) // will return 0.30000000000000004
+```   
+> Note that JavaScript uses floating point math for numerical evaluation of decimals, because it has no way of storing/representing decimal numbers for more detail on this quirk, refer [here](https://0.30000000000000004.com/)
+
+The `Number()` constructor contains a number of static propeties and methods for manipulating numerical data. ES6 has added a few new features to the `Number()` datatype. 
+
+**Static Properties**
+* `Number.EPSILON` - The smallest interval between two representable numbers
+* `Number.MAX_SAFE_INTEGER` - The maximum safe integer in JavaScript
+* `Number.MAX_VALUE` - The largest positive representable number
+* `Number.MIN_SAFE_INTEGER` - The minimum safe integer in JavaScript 
+* `Number.MIN_VALUE` - The smallest positive representable number 
+* `Number.NaN` - Represents the 'Not a Number' value 
+* `Number.NEGATIVE_INFINITIY` - Special value representing negative infinity 
+* `Number.POSITIVE_INFINITY` - Special value representing infinity 
+
+**Static Methods** 
+* `Number.isNaN()` - Determine whether the passed value is `NaN`
+* `Number.isFinite()` - Determine whether the passed value is a finite number
+* `Number.isInteger()` - Determine whether the passed value is an integer
+* `Number.isSafeInteger()` - Determine whether the passed value is a safe integer (i.e. a number in between -(2**53 - 1) and 2**53 - 1)
+* `Number.parseFloat(string)` - Parses an argument and returns a floating point number
+* `Number.parseInt(string, radix)` - Parses a string argument and returns an intger of the specified radix; further details on [parseInt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt)
 
 ### DOM Manipulation (Changes based on user actions)
 
