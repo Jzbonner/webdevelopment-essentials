@@ -587,7 +587,7 @@ document.write("Input Array for Filter Function: " + inputArray + "</br>");
 document.write("Filter function output: " +  outputArray);
 ```
 
-Here is a brief synopsis of the characteristics of arrow functions and their limitations: 
+**Here is a brief synopsis of the characteristics of arrow functions and their limitations**: 
 1. Arrow functions can never be used as constructor functions. Hence, they can never be invoked with the new keyword. As such, a prototype property does not exist for an arrow function.
 2. Arrow functions have their own scope, but there’s no ‘this’ of their own.
 3. No arguments object is available. You can use rest parameters however.
@@ -652,7 +652,7 @@ Strings are the most suited data type for handling and formatting rendered text.
 
 > For further information regarding JavaScript string methods refer to: [Reference](https://www.tutorialsteacher.com/javascript/javascript-string-methods-and-property)
 
-Important takeaways on strings and their uses: 
+**Important takeaways on strings and their uses**:
 1. There are three types of quotes (single quotes, double quotes and backticks). Backticks allow a string to span multiple lines and embed expressions `${...}`
 2. Strings in JavaScript allow for the use of escape characters in order to handle special character occurences
 3. Lean towards using the square bracket notation `str.[pos]` for character position as opposed to the `.charAt()` method
@@ -716,12 +716,27 @@ The `Number()` constructor contains a number of static propeties and methods for
 * `Number.isNaN()` - Determine whether the passed value is `NaN`
 * `Number.isFinite()` - Determine whether the passed value is a finite number
 * `Number.isInteger()` - Determine whether the passed value is an integer
-* `Number.isSafeInteger()` - Determine whether the passed value is a safe integer (i.e. a number in between -(2**53 - 1) and 2**53 - 1)
+* `Number.isSafeInteger()` - Determine whether the passed value is a safe integer (i.e. a number in between` -(2**53 - 1) and 2**53 - 1`)
 * `Number.parseFloat(string)` - Parses an argument and returns a floating point number
 * `Number.parseInt(string, radix)` - Parses a string argument and returns an intger of the specified radix; further details on [parseInt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt)
 
 #### Dates 
 `Date()` is a built in object that stores date/time and provides methods for date/time management. Creating dates requires declaring a new Date constructor, which without arguments, creates a `Date` object for the current date and time. 
+
+```javascript 
+let currentDate = new Date() // will return the current date and time 
+let currentDate = Date.now() // will also return the current date and time 
+
+```
+<img alt="date-time-format" src="https://res.cloudinary.com/dzmc7doja/image/upload/v1629263788/blogsite-content/blogarticle2-javascript/date-time-format.png"/>
+
+**Important Takeaways**: 
+* Date and time in JavaScript are represetned with the Date object. `Date` objects always carry both date and time data 
+* Months are counted from zero (with January at the zero index)
+* Days of the week `getDay()` are also counted from zero (with Sunday at the zero index)
+* `Date` auto-corrects itself when out-of-range components are set. 
+* Dates can be subtracted, giving their difference in milliseconds. That's because a `Date` object becomes the timestamp when converted to a number 
+* Use `Date.now()` to get the current timestamp faster 
 
 ### DOM Manipulation (Changes based on user actions)
 
