@@ -672,6 +672,10 @@ Important takeaways on strings and their uses:
 123.00 
 123 === 123.00 
 
+// ES6 use "e" notation for representing large numbers 
+let billion = 1000000
+let billion = 1e9 // set as 
+
 // Example of function syntax
 Number('123') 
 Number('123') === 123 //returns true 
@@ -685,6 +689,10 @@ console.log(9 / 3) // will return 3
 console.log(20 % 2) // will return 0 
 console.log(2 ** 2) // will return 4
 console.log(Math.pow(2,2,)) // using the Math() function to evaluate exponents this will return 4
+
+// Example of how infinity is treated in JavaScript 
+console.log(2 / 0 ) // will return Infinity 
+console.log(0 / 0) // will return NaN 
 
 // JavaScript using floating point math for evaluation 
 0.1 + 0.2 != 0.3 
@@ -711,6 +719,9 @@ The `Number()` constructor contains a number of static propeties and methods for
 * `Number.isSafeInteger()` - Determine whether the passed value is a safe integer (i.e. a number in between -(2**53 - 1) and 2**53 - 1)
 * `Number.parseFloat(string)` - Parses an argument and returns a floating point number
 * `Number.parseInt(string, radix)` - Parses a string argument and returns an intger of the specified radix; further details on [parseInt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt)
+
+#### Dates 
+`Date()` is a built in object that stores date/time and provides methods for date/time management. Creating dates requires declaring a new Date constructor, which without arguments, creates a `Date` object for the current date and time. 
 
 ### DOM Manipulation (Changes based on user actions)
 
