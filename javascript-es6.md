@@ -11,7 +11,7 @@
  3. **Strings, Numbers, Dates & Their Transformations** - How to create and transform data types in Javascript<br/>
  4. **DOM Manipulation (Changes Based On User Actions)** - Updating the DOM and responding for user events<br/>
  5. **Arrays, Objects and the Idea Behind Classes** - Their differences and their use cases<br/>
- 6. **UI/UX and the Importance of JavaScript Libraries** - Frameworks vs Libraries and knowing when to apply them<br/>
+ 6. **Asynchronous JavaScript and API Integrations** - How to use asynchronous functions to fetch and manipulate data<br/>
  7. **JavaScript Error Handling** - Testing for production: an overview<br/>
  8. **SDLC, TDD, BDD** - Understanding the Software Development Life-cycle <br/>
  9. **Vanilla JS and BrowserStorage** - Saving data in the browser with localStorage, sessionStorage, and cookies<br/>
@@ -21,9 +21,9 @@
 <details>
  <summary>:black_nib: Advanced Topics</summary>
 
- 1. **Asynchronous JavaScript and API Integrations** - How to use asynchronous functions to fetch and manipulate data<br/>
+ 1. **UI/UX and the Importance of JavaScript Libraries** - Frameworks vs Libraries and knowing when to apply them<br/>
  2. **ES6 Modules, Plugins and Scalable JavaScript** - How to structure and manage your scripts as your code base grows larger and more complex<br/>
- 3. **Test Integration** - Testing for production and an overview of test driven development as<br/>
+ 3. **Test Integration** - Testing for production and an overview of test driven development<br/>
  4. **Build Tools and Token-Based Authentication** -  Automating repetitive web development task and best practices for authentication<br/>
  5. **Static-Site Generators and JAM Stack** - The modern way to build websites and web apps that deliver better performance <br/>
 </details>
@@ -728,7 +728,90 @@ let currentDate = new Date() // will return the current date and time
 let currentDate = Date.now() // will also return the current date and time 
 
 ```
-<img alt="date-time-format" src="https://res.cloudinary.com/dzmc7doja/image/upload/v1629263788/blogsite-content/blogarticle2-javascript/date-time-format.png"/>
+
+| Date Time Format Breakdown | Description |
+| --- | ---|
+|<img alt="dtf-visual" src="https://res.cloudinary.com/dzmc7doja/image/upload/v1629515815/blogsite-content/blogarticle2-javascript/date-time-format-visual.png" /> |<img alt="date-time-format" src="https://res.cloudinary.com/dzmc7doja/image/upload/v1629263788/blogsite-content/blogarticle2-javascript/date-time-format.png"/>
+> Notes on Coordinated Universal Time [(UTC)](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)
+
+The `Date()` object's constructor is capable of parsing a variety of different date formats: 
+
+```javascript 
+// Example of variety of date formats compatible with the Date object constructor
+const dateOne = new Date("Sun, 24 July 2021 12:20:00")
+const dateTwo = new Date("Sun, 24 July 2021 8:45:00 UTC")
+const dateThree = new Date("24 July 2021 13:30 UTC+08:45")
+
+// Example of passing separate arguments to the Date object constructor 
+const dateFour = new Date(2021, 7, 24, 12, 20, 0)
+console.log(dateFour) // will return 2021-08-24T16:20:00.000Z
+
+// Example of formatting dates with Date object methods 
+let dF = new Date("2021-01-12T13:25:20")
+
+console.log(dF.toString()) // converts a date object to a string
+// will return 'Tue Jan 12 2021 13:25:20 GMT-0500 (Eastern Standard Time)'
+
+console.log(dF.toDateString()) // converts a portion of a date object into a human readable form 
+// will return 'Tue Jan 12 2021'
+
+console.log(dF.toLocaleDateString()) // returns the date portion of a date object as a locally formatted string 
+// will return '1/12/2021'
+
+console.log(dF.toLocaleTimeString())// returns the time portion of a date object as a locally formatted string
+// will return  '1:25:20 PM'
+
+console.log(dF.toLocaleString()) // converts a date object ot a locally formatted string 
+// will return '1/12/2021, 1:25:20 PM'
+
+console.log(dF.toUTCString()) // converts a date object to a string, according to universal time 
+// will return 'Tue, 12 Jan 2021 18:25:20 GMT'
+
+console.log(dF.toISOString()) // retruns the date as a string, formatted according to ISO standard 
+// will return '2021-01-12T18:25:20.000Z'
+
+console.log(dF.toTimeString()) // converts the time portion of a data object to a string 
+// will return '13:25:20 GMT-0500 (Eastern Standard Time)'
+
+console.log(dF.getTime()) // returns the number of milliseconds since midnight Jan 1, 1970 
+// will return 1610475920000
+```
+> Further documentation on [Date object methods and properties](https://www.tutorialrepublic.com/javascript-reference/javascript-date-object.php)
+
+In web development date manipulation is typically used for comparing dates, updating dates and setting custom date formats. There are a few built-in options for handling dates with ES6 and recently there have been a number of date manipulation libraries that make working with date data alot more efficient.
+
+ES6 allows the formatting of a date into a specific locale using the `Intl` object via the [Internationalization API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl). This built in object allows for specific datetime formats and allows you to set locale according to computer defaults. 
+
+```javascript
+// Example of using the Intl object in ES6 
+let intl_date = new Date("2021-01-09T14:56:23")
+let options = {
+  year: "numeric",
+  month: "long",
+  weekday: "long",
+  hour: "numeric",
+  minute: "numeric",
+  second: "numeric"
+}
+
+console.log(Intl.DateTimeFormat().format(intl_date)) // will return 1/9/2021
+
+console.log(Intl.DateTimeFormat("de-DE").format(intl_date)) // will return 9.1.2021
+
+console.log(Intl.DateTimeFormat("en-US", options).format(intl_date)) // will return January 2021 Satruday, 2:56:23 PM
+```
+
+Although there ways to manipulate date data in vanialla JavaScript, most enterprise level development teams will take advantage of date manipulation libraries to handle date time data - examples include [moment.js](https://momentjs.com/), [date-fns](https://date-fns.org/) and most notable [Luxon](https://moment.github.io/luxon/#/). Date manipulation libraries aren't a complete overhaul of how datetime data is handled in JavaScript but they do provide a more intuitive and readable option for updating and comparing datetime data. 
+
+For example the Date manipulation javascript library, **Luxon**, offers features such as: 
+* A nice API for working with datetimes 
+* Interval support (from time x to time y)
+* Duration support (14 days, 4 minutes, 33 seconds)
+* Parsing and Formatting datetimes, intervals and durations 
+* Internationalization of strings using the Intl API
+* Detailed and unambigious math operations
+* Built-in handling of time zones 
+* Partial support for multiple calendar systems  
 
 **Important Takeaways**: 
 * Date and time in JavaScript are represetned with the Date object. `Date` objects always carry both date and time data 
@@ -751,7 +834,6 @@ let currentDate = Date.now() // will also return the current date and time
 ### Vanilla JavaScript and BrowserStorage 
 
 ### State-Based UI and State Management 
-
 
 <details>
 	<summary><img align="left" alt="brain-logo" width="26px" src="https://res.cloudinary.com/dzmc7doja/image/upload/v1476137279/favicons/favicon_zbg0x4.png"/>References and Sources</summary>
