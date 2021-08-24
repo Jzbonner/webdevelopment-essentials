@@ -198,3 +198,71 @@ function exampleFunction() {
   for (let char of str) {
     console.log(char)
   }
+
+// Floating point numbers 
+console.log(0.1 + 0.2) // will return 0.30000000000000004
+
+// Examples of mathematic Operations in JavaScript
+console.log(1 + 1) // will return 2 
+console.log(12 * 4) // will return 48 
+console.log(9 / 3) // will return 3
+console.log(20 % 2) // will return 0 
+console.log(2 ** 2) // will return 4
+console.log(Math.pow(2,2,)) // will return 4
+
+// Example of variety of date formats compatible with the Date object constructor
+const dateOne = new Date("Sun, 24 July 2021 12:20:00")
+const dateTwo = new Date("Sun, 24 July 2021 8:45:00 UTC")
+const dateThree = new Date("24 July 2021 13:30 UTC+08:45")
+
+// Example of passing separate arguments to the Date object constructor 
+const dateFour = new Date(2021, 7, 24, 12, 20, 0)
+console.log(dateFour) // will return 2021-08-24T16:20:00.000Z
+
+// Example of formatting dates with Date object methods 
+let dF = new Date("2021-01-12T13:25:20")
+
+console.log(dF.toString()) // converts a date object to a string
+// 'Tue Jan 12 2021 13:25:20 GMT-0500 (Eastern Standard Time)'
+
+console.log(dF.toDateString()) // converts a portion of a date object into a human readable form 
+// will return 'Tue Jan 12 2021'
+
+console.log(dF.toLocaleDateString()) // returns the date portion of a date object as a locally formatted string 
+// will return '1/12/2021'
+
+console.log(dF.toLocaleTimeString())// returns the time portion of a date object as a locally formatted string
+// will return  '1:25:20 PM'
+
+console.log(dF.toLocaleString()) // converts a date object ot a locally formatted string 
+// will return '1/12/2021, 1:25:20 PM'
+
+console.log(dF.toUTCString()) // converts a date object to a string, according to universal time 
+// will return 'Tue, 12 Jan 2021 18:25:20 GMT'
+
+console.log(dF.toISOString()) // retruns the date as a string, formatted according to ISO standard 
+// will return '2021-01-12T18:25:20.000Z'
+
+console.log(dF.toTimeString()) // converts the time portion of a data object to a string 
+// will return '13:25:20 GMT-0500 (Eastern Standard Time)'
+
+console.log(dF.getTime()) // returns the number of milliseconds since midnight Jan 1, 1970 
+// will return 1610475920000
+
+// Example of using the Intl object in ES6 
+let intl_date = new Date("2021-01-09T14:56:23")
+let options = {
+  year: "numeric",
+  month: "long",
+  weekday: "long",
+  hour: "numeric",
+  minute: "numeric",
+  second: "numeric"
+}
+
+console.log(Intl.DateTimeFormat().format(intl_date)) // will return 1/9/2021
+
+console.log(Intl.DateTimeFormat("de-DE").format(intl_date)) // will return 9.1.2021
+
+console.log(Intl.DateTimeFormat("en-US", options).format(intl_date)) // will return January 2021 Satruday, 2:56:23 PM
+
