@@ -654,7 +654,7 @@ Strings are the most suited data type for handling and formatting rendered text.
 
 **Important takeaways on strings and their uses**:
 1. There are three types of quotes (single quotes, double quotes and backticks). Backticks allow a string to span multiple lines and embed expressions `${...}`
-2. Strings in JavaScript allow for the use of escape characters in order to handle special character occurences
+2. Strings in JavaScript allow for the use of escape characters in order to handle special character occurrences
 3. Lean towards using the square bracket notation `str.[pos]` for character position as opposed to the `.charAt()` method
 4. To get a substring use: `.slice() or .substring()` 
 5. You can convert a string to lowercase or uppercase by using the `.toLowerCase() or .toUpperCase()` method
@@ -682,7 +682,7 @@ Number('123') === 123 //returns true
 Number("unicorn") // returns undefined 
 Number(undefined) // returns undefined
 
-// Examples of mathematic operations in JavaScript
+// Examples of mathematical operations in JavaScript
 console.log(1 + 1) // will return 2 
 console.log(12 * 4) // will return 48 
 console.log(9 / 3) // will return 3
@@ -700,7 +700,7 @@ console.log(0.1 + 0.2) // will return 0.30000000000000004
 ```   
 > Note that JavaScript uses floating point math for numerical evaluation of decimals, because it has no way of storing/representing decimal numbers for more detail on this quirk, refer [here](https://0.30000000000000004.com/)
 
-The `Number()` constructor contains a number of static propeties and methods for manipulating numerical data. ES6 has added a few new features to the `Number()` datatype. 
+The `Number()` constructor contains a number of static properties and methods for manipulating numerical data. ES6 has added a few new features to the `Number()` datatype. 
 
 **Static Properties**
 * `Number.EPSILON` - The smallest interval between two representable numbers
@@ -718,7 +718,7 @@ The `Number()` constructor contains a number of static propeties and methods for
 * `Number.isInteger()` - Determine whether the passed value is an integer
 * `Number.isSafeInteger()` - Determine whether the passed value is a safe integer (i.e. a number in between` -(2**53 - 1) and 2**53 - 1`)
 * `Number.parseFloat(string)` - Parses an argument and returns a floating point number
-* `Number.parseInt(string, radix)` - Parses a string argument and returns an intger of the specified radix; further details on [parseInt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt)
+* `Number.parseInt(string, radii)` - Parses a string argument and returns an integer of the specified radii; further details on [parseInt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt)
 
 #### Dates 
 `Date()` is a built in object that stores date/time and provides methods for date/time management. Creating dates requires declaring a new Date constructor, which without arguments, creates a `Date` object for the current date and time. 
@@ -761,13 +761,13 @@ console.log(dF.toLocaleDateString()) // returns the date portion of a date objec
 console.log(dF.toLocaleTimeString())// returns the time portion of a date object as a locally formatted string
 // will return  '1:25:20 PM'
 
-console.log(dF.toLocaleString()) // converts a date object ot a locally formatted string 
+console.log(dF.toLocaleString()) // converts a date object to a locally formatted string 
 // will return '1/12/2021, 1:25:20 PM'
 
 console.log(dF.toUTCString()) // converts a date object to a string, according to universal time 
 // will return 'Tue, 12 Jan 2021 18:25:20 GMT'
 
-console.log(dF.toISOString()) // retruns the date as a string, formatted according to ISO standard 
+console.log(dF.toISOString()) // returns the date as a string, formatted according to ISO standard 
 // will return '2021-01-12T18:25:20.000Z'
 
 console.log(dF.toTimeString()) // converts the time portion of a data object to a string 
@@ -778,9 +778,9 @@ console.log(dF.getTime()) // returns the number of milliseconds since midnight J
 ```
 > Further documentation on [Date object methods and properties](https://www.tutorialrepublic.com/javascript-reference/javascript-date-object.php)
 
-In web development date manipulation is typically used for comparing dates, updating dates and setting custom date formats. There are a few built-in options for handling dates with ES6 and recently there have been a number of date manipulation libraries that make working with date data alot more efficient.
+In web development date manipulation is typically used for comparing dates, updating dates and setting custom date formats. There are a few built-in options for handling dates with ES6 and recently there have been a number of date manipulation libraries that make working with date data a lot more efficient.
 
-ES6 allows the formatting of a date into a specific locale using the `Intl` object via the [Internationalization API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl). This built in object allows for specific datetime formats and allows you to set locale according to computer defaults. 
+ES6 allows the formatting of a date into a specific locale using the `Intl` object via the [Internationalization API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl). This built in object allows for specific date time formats and allows you to set locale according to computer defaults. 
 
 ```javascript
 // Example of using the Intl object in ES6 
@@ -798,23 +798,28 @@ console.log(Intl.DateTimeFormat().format(intl_date)) // will return 1/9/2021
 
 console.log(Intl.DateTimeFormat("de-DE").format(intl_date)) // will return 9.1.2021
 
-console.log(Intl.DateTimeFormat("en-US", options).format(intl_date)) // will return January 2021 Satruday, 2:56:23 PM
+console.log(Intl.DateTimeFormat("en-US", options).format(intl_date)) // will return January 2021 Saturday, 2:56:23 PM
 ```
 
-Although there ways to manipulate date data in vanialla JavaScript, most enterprise level development teams will take advantage of date manipulation libraries to handle date time data - examples include [moment.js](https://momentjs.com/), [date-fns](https://date-fns.org/) and most notable [Luxon](https://moment.github.io/luxon/#/). Date manipulation libraries aren't a complete overhaul of how datetime data is handled in JavaScript but they do provide a more intuitive and readable option for updating and comparing datetime data. 
+Although there ways to manipulate date data in vanilla JavaScript, most enterprise level development teams will take advantage of date manipulation libraries to handle date time data - examples include [moment.js](https://momentjs.com/), [date-fns](https://date-fns.org/) and most notable [Luxon](https://moment.github.io/luxon/#/). Date manipulation libraries aren't a complete overhaul of how date time data is handled in JavaScript but they do provide a more intuitive and readable option for updating and comparing date time data. 
 
-For example the Date manipulation javascript library, **Luxon**, offers features such as: 
-* A nice API for working with datetimes 
+```javascript 
+// Example of using the luxon.js library for date time manipulation in JavaScript
+let luxon_date = DateTime.now().setZone('America/New_York').minus({weeks:1}).endOf('day').toISO();
+```
+
+For example the Date manipulation JavaScript library, **Luxon**, offers features such as: 
+* A nice API for working with date times 
 * Interval support (from time x to time y)
 * Duration support (14 days, 4 minutes, 33 seconds)
-* Parsing and Formatting datetimes, intervals and durations 
+* Parsing and Formatting date times, intervals and duration 
 * Internationalization of strings using the Intl API
-* Detailed and unambigious math operations
+* Detailed and unambiguous math operations
 * Built-in handling of time zones 
 * Partial support for multiple calendar systems  
 
 **Important Takeaways**: 
-* Date and time in JavaScript are represetned with the Date object. `Date` objects always carry both date and time data 
+* Date and time in JavaScript are represented with the Date object. `Date` objects always carry both date and time data 
 * Months are counted from zero (with January at the zero index)
 * Days of the week `getDay()` are also counted from zero (with Sunday at the zero index)
 * `Date` auto-corrects itself when out-of-range components are set. 
@@ -822,10 +827,21 @@ For example the Date manipulation javascript library, **Luxon**, offers features
 * Use `Date.now()` to get the current timestamp faster 
 
 ### DOM Manipulation (Changes based on user actions)
+The Document Object Model (DOM) is a tree-like structure showing a hierarchical relationship between differenct HTML elements. The DOM can be referred to as a progamming API for HTML/XML documents. It defines the logical structure of documents and the way a document is accessed and manipulated. 
+
+| DOM Tree | Description |
+| --- | ---|
+| <img alt="dom-tree"  src="https://res.cloudinary.com/dzmc7doja/image/upload/v1630006890/blogsite-content/blogarticle2-javascript/dom-tree.png"/>| 1. **Document**: When a member returns an object of type `docuemnt`, this object is the root `document` object itself <br/> 2. **Node**: Every object located within a document is a node of some kind. An object can be an element node but also a text node or attribute node <br /> 3. **Element**:  The `element` type is based on `node`. It refers to an element of a node of type `element` returnded by a member of the DOM API <br /> 4. **NodeList**: A `nodeList` is an array of elements, like the kind that is returned by the method `document.querySelectorAll()` <br /> 5. **Attr**: When an `attribute` is returned by a member, it is an object reference that exposes a special interface for attributes <br /> 6. **NamedNodeMap**: A `nameNodeMap` is like an array, but the items are accessed by name or index  |
+
+Manipulating rendered content on a website through dom manipulation requires the use of DOM methods (essentially the connection between nodes, elements and events). Of the multitude of DOM methods out there, the following is a list of the most common APIs in HTML scripting using the DOM.
+
+* `document.getElementById('id')`: Retrieves the element with the given `id` as an object  
+* `document.getElementsByTagName('tagname')`: Retrieves all elements with the tag name `tagname` and stores them in array like list
+* `node.getAttribute('attribute')`: Retrieves the value of the attribute with the name attribute
 
 ### Arrays, Objects and the Idea Behind Classes
 
-### UI/UX and the Importance of JavaScript Libraries 
+### Asynchronous JavaScript and API Integrations
 
 ### JavaScript Error Handling 
 
