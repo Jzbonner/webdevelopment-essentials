@@ -837,7 +837,15 @@ Manipulating rendered content on a website through dom manipulation requires the
 
 * `document.getElementById('id')`: Retrieves the element with the given `id` as an object  
 * `document.getElementsByTagName('tagname')`: Retrieves all elements with the tag name `tagname` and stores them in array like list
-* `node.getAttribute('attribute')`: Retrieves the value of the attribute with the name attribute
+* `node.getAttribute('attribute')`: Retrieves the value of the attribute with the name `attribute`
+* `node.setAttribute('attribute', 'value')`: Sets the value of the attribute with the name `attribute` to `value`
+* `node.nodeType`: Reads the type of the `node`
+* `node.nodeName`: Reads the name of the `node`
+* `node.nodeValue`: Reads or sets the value of the `node`
+* `node.previousSibling`: Retrieves the previous ibling node and stores it as an object
+* `node.nextSibling`: Retrieves the next sibling node and stores it as an object 
+* `node.childNodes`: Retrieves all child nodes of the object and stores them in an list. (*shortcuts*: `node.firstChild` & `node.lastChild`)
+* `node.parentNode`: Retreives the node containing `node`
 
 ### Arrays, Objects and the Idea Behind Classes
 
