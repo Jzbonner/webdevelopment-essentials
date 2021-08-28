@@ -844,8 +844,49 @@ Manipulating rendered content on a website through dom manipulation requires the
 * `node.nodeValue`: Reads or sets the value of the `node`
 * `node.previousSibling`: Retrieves the previous ibling node and stores it as an object
 * `node.nextSibling`: Retrieves the next sibling node and stores it as an object 
-* `node.childNodes`: Retrieves all child nodes of the object and stores them in an list. (*shortcuts*: `node.firstChild` & `node.lastChild`)
+* `node.childNodes`: Retrieves all child nodes of the object and stores them in an list. (shortcuts: `node.firstChild` & `node.lastChild`)
 * `node.parentNode`: Retreives the node containing `node`
+* `document.createElement(element)`: Creates a new element node with the name element. You provide the name as a string 
+* `document.createTextNode(string)`: Creates a new text node with the node value of string 
+* `newNode = node.cloneNode(bool)`: Creates `newNode` as a copy of `node`. If bool is `true`, the clone includes clones of all the child nodes of the original. 
+* `node.appendChild(newNode)`: Adds `newNode` as a new (last) child node to node
+* `node.insertBefore(newNode, oldNode)`: Inserts `newNode` as a new child node of node before `oldNode`
+* `node.removeChild(oldNode)`: Removes the child `oldNode` from node
+* `node.replaceChild(newNode, oldNode)`: Replaces the child node `oldNode` of node with `newNode`
+* `element.innerHTML`: Reads or writes the HTML content of the given element as a string - including all child nides with their attributes and text content
+
+**DOM Use Cases**
+
+Updating content in div elements, providing functionality to specific compenents and customizing the css styles are only a few of the use cases associated with DOM manipulation. To better  understand these scenarios refer to the examples below.  
+
+Example HTML file: 
+```
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DOM Manipulation</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1><time>00:00:00</time></h1> 
+        <button id="start">Start</button> 
+        <button id="stop">Stop</button> 
+        <button id="reset">Reset</button>
+    </div>
+</body>
+
+</html>
+```
+
+**DOM Manipulation Libraries**
+
+DOM manipulation is an extrememly useful tool for solving simple functionality use cases. But thinking in terms of modularity and optimization, most enterprise level web applications will probably take advantage of a JavaScript library to make DOM manipulation more efficient. Specifically [umbrella.js](https://umbrellajs.com/) and [femtojs](https://vladocar.github.io/femtoJS/) are two well known DOM manipulation libraries that streamline the process of working the DOM. 
+
 
 ### Arrays, Objects and the Idea Behind Classes
 
