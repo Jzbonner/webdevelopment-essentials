@@ -859,34 +859,58 @@ Manipulating rendered content on a website through dom manipulation requires the
 
 Updating content in div elements, providing functionality to specific compenents and customizing the css styles are only a few of the use cases associated with DOM manipulation. To better  understand these scenarios refer to the examples below.  
 
-Example HTML file: 
+Example of using DOM Manipulation to alter rendered html elements on the page:
 ```
 <!DOCTYPE html>
 <html lang="en-US">
 
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>DOM Manipulation</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <h1><time>00:00:00</time></h1> 
-        <button id="start">Start</button> 
-        <button id="stop">Stop</button> 
-        <button id="reset">Reset</button>
+      <h1 class="title">DOM Manpulation in JavaScript</h1>
+      <p id="hiddentext">I appear and disapper when you click the button below</p>
+      <button id="toggle" value="off" onclick="toggleButton()">Toggle Me</button>
     </div>
-</body>
+
+    <script type="text/javascript">
+    let title = document.querySelector("h1.title")
+    console.log(title.innerText) // an example of pulling in specific information 
+    
+      function toggleButton() {
+        let button = document.getElementById("toggle")
+        console.log(button.value) // console will show when the button is set to off vs on
+        let p = document.getElementById("hiddentext")
+        if (button.value === "on") {
+          p.style.display = "block";
+          button.value = "off";
+        } else {
+          p.style.display = "none";
+          button.value = "on";
+        }
+      }
+    </script>
+  </body>
 
 </html>
+
 ```
+> Refer to jsfiddle environment [here](https://jsfiddle.net/jzbonner/0h6n975t/)
+
+Using the example above we can take an indepth look at how DOM manipualtion methods work in the process of creating, modifying and removing elements. In JavaScript you can declare variables based off of html elements rendered on the client-side. Refer to the following examples below: 
+
+```javascript
+//`querySelector()` returns the first value that matches the selector it's given. This method can accept all CSS style selectors (i.e. tags, class or id)
+ ```
 
 **DOM Manipulation Libraries**
 
 DOM manipulation is an extrememly useful tool for solving simple functionality use cases. But thinking in terms of modularity and optimization, most enterprise level web applications will probably take advantage of a JavaScript library to make DOM manipulation more efficient. Specifically [umbrella.js](https://umbrellajs.com/) and [femtojs](https://vladocar.github.io/femtoJS/) are two well known DOM manipulation libraries that streamline the process of working the DOM. 
-
 
 ### Arrays, Objects and the Idea Behind Classes
 
