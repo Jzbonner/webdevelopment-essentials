@@ -859,7 +859,7 @@ Manipulating rendered content on a website through dom manipulation requires the
 
 Updating content in div elements, providing functionality to specific compenents and customizing the css styles are only a few of the use cases associated with DOM manipulation. To better  understand these scenarios refer to the examples below.  
 
-Example of using DOM Manipulation to alter rendered html elements on the page:
+Example HTML file:
 ```
 <!DOCTYPE html>
 <html lang="en-US">
@@ -905,7 +905,27 @@ Example of using DOM Manipulation to alter rendered html elements on the page:
 Using the example above we can take an indepth look at how DOM manipualtion methods work in the process of creating, modifying and removing elements. In JavaScript you can declare variables based off of html elements rendered on the client-side. Refer to the following examples below: 
 
 ```javascript
-//`querySelector()` returns the first value that matches the selector it's given. This method can accept all CSS style selectors (i.e. tags, class or id)
+// getElementById can be used to reference a specified paragraph element and by attaching the attribute `.textContent` you can access the inner HTML
+let firstId = () => console.log(document.getElementById("hiddentext").textContent);
+firstId(); // will return "I appear and disappear when you click the button below"
+
+// Using getElementsByClassName to reference all HTML elements with the specified selector. The declared variable `let background` can be treated like an array. The DOM style property can then be used to change the background color of the specified HTML element  
+let containers = (style) => {
+  let background = document.getElementsByClassName("container")[0];
+  background.style.color = style;
+  console.log("background style has been changed via the container variable");
+}
+containers("#DBD5CD");
+
+// Realizing that the getElementsByClassName method returns an array, we can use the `for...of` statement to iterate through all elements in the array and update their DOM style property automaticatically 
+function backgroundChange(style) {
+  let containers = document.getElementsByClassName("container");
+  for (const background of containers) {
+    background.style.color = style;
+  }
+  console.log("background style has been changed via the the backgroundChange function");
+}
+backgroundChange("#B0C28D");
  ```
 
 **DOM Manipulation Libraries**
