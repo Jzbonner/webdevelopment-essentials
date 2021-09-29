@@ -868,6 +868,7 @@ Example HTML file:
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./style.css">
     <title>DOM Manipulation</title>
   </head>
 
@@ -911,6 +912,7 @@ Example HTML file:
   </body>
 
 </html>
+
 ```
 > Refer to jsfiddle environment [here](https://jsfiddle.net/jzbonner/0h6n975t/)
 
@@ -948,13 +950,28 @@ buttons(); // will return the node name of the element at index 0 in the list of
 
 // An example of updating the DOM by creating and appending elements 
 function addParagraph() {
-  let body = document.querySelector("#firstrow");   
+  let body = document.querySelector("#firstrow");
   let newParagraph = document.createElement("p");
   let newText = document.createTextNode("this is a text that was added with the `addParagraph` function!")
   body.appendChild(newParagraph).appendChild(newText);
 }
-addParagraph(); 
+addParagraph();
+
+// An example of adding/removing/toggling/checking classes with DOM Manipulation
+let titleText = document.querySelector("h1.title");
+titleText.classList.add("added-class"); // will add the css class `added-class` to the h1.title element 
+// titleText.classList.remove("added-class");  will remove the css class from the h1.title element 
+// titleText.classList.toggle("added-class"); will toggle the `added-class` css class to the element if not set, if it is already present it will remove it
+// titleText.calssList.contains("added-class"); will return a boolean value if the h1.title element has/doesn't have the specified class
 ```
+**Event Listening** 
+One specific area where DOM manipulation becomes a vital tool is when employing event listeners. Events are signals that are fired inside the browser window that notify of changes in the browser or operating system environment. Programmers can create *event handler* code that will run when an event fires, allowing web pages to respond appropriately to change. 
+
+> Further information on `Events` in JavaScript can be found [here](https://developer.mozilla.org/en-US/docs/Web/Events#event_index)
+
+There are two recommended approaches for registering event handlers. Event handler code can be made to run when an event is triggered by assigning it to the target's corresponding `onevent` property, or by registering the handler as a listener for the element using `addEventListener()` method. 
+
+
 
 **DOM Manipulation Libraries**
 
