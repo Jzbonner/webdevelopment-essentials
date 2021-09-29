@@ -872,16 +872,28 @@ Example HTML file:
   </head>
 
   <body>
-    <div class="container">
+    <div id="firstrow" class="container">
       <h1 class="title">DOM Manpulation in JavaScript</h1>
       <p id="hiddentext">I appear and disapper when you click the button below</p>
       <button id="toggle" value="off" onclick="toggleButton()">Toggle Me</button>
     </div>
 
-    <script type="text/javascript">
-    let title = document.querySelector("h1.title")
-    console.log(title.innerText) // an example of pulling in specific information 
+    <div class="container">
+      <h2 class="title">This is another toggle button section</h2>
+      <p id="hiddentext">I appear and disapper when you click the button below</p>
+      <button id="toggle" value="off" onclick="toggleButton()">Toggle Me</button>
+    </div>
+
+    <div class="container">
+      <h2 class="title">This is another toggle button section</h2>
+      <p id="hiddentext">I appear and disapper when you click the button below</p>
+      <button id="toggle" value="off" onclick="toggleButton()">Toggle Me</button>
+    </div>
     
+    <script type="text/javascript">
+      let title = document.querySelector("h1.title")
+      console.log(title.innerText) // an example of pulling in specific information 
+
       function toggleButton() {
         let button = document.getElementById("toggle")
         console.log(button.value) // console will show when the button is set to off vs on
@@ -894,22 +906,22 @@ Example HTML file:
           button.value = "on";
         }
       }
+
     </script>
   </body>
 
 </html>
-
 ```
 > Refer to jsfiddle environment [here](https://jsfiddle.net/jzbonner/0h6n975t/)
 
 Using the example above we can take an indepth look at how DOM manipualtion methods work in the process of creating, modifying and removing elements. In JavaScript you can declare variables based off of html elements rendered on the client-side. Refer to the following examples below: 
 
 ```javascript
-// getElementById can be used to reference a specified paragraph element and by attaching the attribute `.textContent` you can access the inner HTML
+// `getElementById` can be used to reference a specified paragraph element and by attaching the attribute `.textContent` you can access the inner HTML
 let firstId = () => console.log(document.getElementById("hiddentext").textContent);
 firstId(); // will return "I appear and disappear when you click the button below"
 
-// Using getElementsByClassName to reference all HTML elements with the specified selector. The declared variable `let background` can be treated like an array. The DOM style property can then be used to change the background color of the specified HTML element  
+// Using `getElementsByClassName` to reference all HTML elements with the specified selector. The declared variable `let background` can be treated like an array. The DOM style property can then be used to change the background color of the specified HTML element  
 let containers = (style) => {
   let background = document.getElementsByClassName("container")[0];
   background.style.color = style;
@@ -917,7 +929,7 @@ let containers = (style) => {
 }
 containers("#DBD5CD");
 
-// Realizing that the getElementsByClassName method returns an array, we can use the `for...of` statement to iterate through all elements in the array and update their DOM style property automaticatically 
+// Realizing that the `getElementsByClassName` method returns an array, we can use the `for...of` statement to iterate through all elements in the array and update their DOM style property automaticatically 
 function backgroundChange(style) {
   let containers = document.getElementsByClassName("container");
   for (const background of containers) {
@@ -926,7 +938,23 @@ function backgroundChange(style) {
   console.log("background style has been changed via the the backgroundChange function");
 }
 backgroundChange("#B0C28D");
- ```
+
+// Using `querySelector` and `querySelectorAll` are similar in design except one returns the first element that matches the passed parameter and the second returns all elements that match the passed parameter; in this case the parameter being a CSS selector 
+let button = () => console.log(document.querySelector("button#toggle").textContent);
+button(); // will return inner text of the button element i.e. "Toggle Me"
+
+let buttons = () => console.log(document.querySelectorAll("button#toggle")[0].nodeName);
+buttons(); // will return the node name of the element at index 0 in the list of elements that match the `button#toggle` CSS selector i.e. "BUTTON"
+
+// An example of updating the DOM by creating and appending elements 
+function addParagraph() {
+  let body = document.querySelector("#firstrow");   
+  let newParagraph = document.createElement("p");
+  let newText = document.createTextNode("this is a text that was added with the `addParagraph` function!")
+  body.appendChild(newParagraph).appendChild(newText);
+}
+addParagraph(); 
+```
 
 **DOM Manipulation Libraries**
 
