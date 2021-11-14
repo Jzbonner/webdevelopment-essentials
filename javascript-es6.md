@@ -964,15 +964,17 @@ titleText.classList.add("added-class"); // will add the css class `added-class` 
 // titleText.classList.toggle("added-class"); will toggle the `added-class` css class to the element if not set, if it is already present it will remove it
 // titleText.calssList.contains("added-class"); will return a boolean value if the h1.title element has/doesn't have the specified class
 ```
+
 **Event Listening** 
 One specific area where DOM manipulation becomes a vital tool is when employing event listeners. Events are signals that are fired inside the browser window that notify of changes in the browser or operating system environment. Programmers can create *event handler* code that will run when an event fires, allowing web pages to respond appropriately to change. 
 
 > Further information on `Events` in JavaScript can be found [here](https://developer.mozilla.org/en-US/docs/Web/Events#event_index)
 
-There are two recommended approaches for registering event handlers. Event handler code can be made to run when an event is triggered by assigning it to the target's corresponding `onevent` property, or by registering the handler as a listener for the element using `addEventListener()` method. 
+There are two recommended approaches for registering event handlers. Event handler code can be made to run when an event is triggered by assigning it to the target's corresponding `onevent` property, or by registering the handler as a listener for the element using `addEventListener()` method.
 
+JavaScript objects that fire events have a corresponding "onevent" properties; which are called to run associated handler code when the event is fired. To set event handler code, assign it to the appropriate onevent property (only one event handler can be assigned for every event in an element - however if needed the handler can be replaced by assigning another function to the same property). 
 
-
+ 
 **DOM Manipulation Libraries**
 
 DOM manipulation is an extrememly useful tool for solving simple functionality use cases. But thinking in terms of modularity and optimization, most enterprise level web applications will probably take advantage of a JavaScript library to make DOM manipulation more efficient. Specifically [umbrella.js](https://umbrellajs.com/) and [femtojs](https://vladocar.github.io/femtoJS/) are two well known DOM manipulation libraries that streamline the process of working the DOM. 
