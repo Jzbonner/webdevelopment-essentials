@@ -8,7 +8,7 @@ Full stack web application development with mongodb, express, react and node.js.
 Any web application is built using multiple technologies and the combination of these technologies is called a stack (example: LAMP - Linux, Apache, MySQL, PHP). The MEAN stack was one of the early open-source stacks that sparked a shift towards Single Page Applications and the adoption of NoSQL. Over the years, Angular.js, has brought on the rise of other front-end frameworks such as React.js, Vue.js, etc. The MERN stack was created as a way to primarily utilize the core React library for client-side rendering in place of the MVC architecture that Angular offers. 
 
 ## React Components Overview
-There are two main ways of coding React Components: **Class-Based Comopnents and Functional Components**. The difference among the two is in how the underlying JSX is rendered. 
+There are two main ways of coding React Components: **Class-Based Comopnents and Functional Components**. The difference among the two is in how the underlying JSX is rendered. A functional compenent is just a plain JavaScript function that returns JSX. A class component is a JavaScript class tht extends the `React.Component`, which has a render method. 
 
 ## React State
 
