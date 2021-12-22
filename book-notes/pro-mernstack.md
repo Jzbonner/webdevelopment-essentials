@@ -19,7 +19,35 @@ const FunctionalComponent = () => {
 }
 ```
 
-Essentially components in react optionally accept input (in the form of properties -- `props`) and return a react element that describes how a section of the UI should appear.
+Essentially components in react optionally accept input (in the form of properties -- `props`) and return a react element that describes how a section of the UI should appear. Components in React are exportable which allows developers to employ modularity in their code bases. For instance: 
+
+```javascript
+//example welcome.js file 
+import React from "react";
+
+const Welcome = (props) => {
+  <h1>Hello, {props.name}</h1>
+}
+
+export default Welcome
+
+//exmaple App.js file 
+import Welcome from "./Welcome";
+
+function App() {
+  return (
+    <div className="App">
+      <Welcome />
+    </div>
+  )
+}
+```
+
+A functional component in React is: 
+* A JavaScript (ES6) function 
+* Must return a React element (JSX)
+* Always starts with a capital letter (naming convention)
+* Takes `props` as a parameter if necessary
 
 ## React State
 
