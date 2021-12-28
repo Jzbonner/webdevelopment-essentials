@@ -49,7 +49,10 @@ A functional component in React is:
 * Always starts with a capital letter (naming convention)
 * Takes `props` as a parameter if necessary
 
+In older version of React, Class components were primarily used to manage state. Functional components were only used for rendering UI elements. Now with the introduction of React Hooks, functional components has become the standard for managing data and life-cycle methods in your client side applications.  
+
 ## React State
+State management in React is a way to engender communication and sharing of data across components. State is a JavaScript object that represents the part of the component that can change based on a particular user event. Think of state as the memory of a component.  
 
 ## Express, GraphQL, and REST API 
 
