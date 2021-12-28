@@ -12,6 +12,9 @@ Web animation can be used to attract attention, encourage better engagement, and
 
 ### The `motion` component 
 Is a React Component built-into the `framer-motion` library. It will primarily be used to handle animations for HTML and SVG elements on the front end. The `motion` component is DOM optimized for 60fps animations and gesture support. Using the `motion` component and allows you to: 
+<br /> 
+<br /> 
+📌 Declaratively or imperatively animate components <br />
 📌 Declaratively or imperatively animate components <br />
 📌 Animate throughout React trees via variants <br />
 📌 Respond to gestures with animations <br />
@@ -36,3 +39,5 @@ export const Example = () => (
 )
 ```
 
+### The `animation` prop 
+When any value in animate changes the component will automatically animate to the updated target. By default, Framer Motion creates an appropriate animation for a snappy transition based on the types of value sbeing animated. For instance, physical properties like `x` or `scale` will be animated using a *spring* simulation. Whereas values like `opacity` or `color` will be animated with a *tween* simulation. 
