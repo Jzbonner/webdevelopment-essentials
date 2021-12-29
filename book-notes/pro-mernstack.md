@@ -76,7 +76,19 @@ Recoil allows you to organize state data into a graph structure. It's API is ver
 ![react-recoil-workflow](https://res.cloudinary.com/dzmc7doja/image/upload/v1640732012/notes-imgcontent/recoil.jpg)
 
 ### React Hooks
-With the introduction of React Hooks, state management was brought to functional components. 
+With the introduction of React Hooks, state management was brought to functional components. React is a not a front-end framework that looks for changes and updates accordingly (other frameworks like Angular and Vue do support this). React Hooks are used as indicators of when state has changed and ultimately of when a react component needs to be re-rendered. Essentially *Hooks* are a broad set of tools that run custom functions when a components *props* change. Since this method of state management doesn't require you to use classes, developers can use *Hooks* to write shorter, more readable code that is easy to share and maintain. 
+* The `useState` hook is valuable when setting a value without referencing the current state. 
+* The `useReducer` hook is useful when you need to reference a previous value or when you have different actions that require complex data manipulations.
+
+
+**Drawbacks**
+* Hooks require passing dependencies, if they are not passed it can lead to unexpected and hard-to-debug behavior. 
+* Hooks rely on execution order, so it's impossible to call a hook conditionally 
+* Because Hooks can be used for a multitude of functions like modifying the DOM, modifying the State, calling callbacks and so on, it's easy to overload your components with excessive hooks that add complexity and deter re-usability. 
+
+| React Hook Lifecycle | React re-render Process |
+|-----------|-------|
+![react-hooks](https://res.cloudinary.com/dzmc7doja/image/upload/v1640761922/notes-imgcontent/react-hooks.jpg) | ![react-hooks-detail](https://res.cloudinary.com/dzmc7doja/image/upload/v1640762036/notes-imgcontent/react-hooks-2.png)
 
 ## Express, GraphQL, and REST API 
 
