@@ -90,7 +90,35 @@ With the introduction of React Hooks, state management was brought to functional
 |-----------|-------|
 ![react-hooks](https://res.cloudinary.com/dzmc7doja/image/upload/v1640761922/notes-imgcontent/react-hooks.jpg) | ![react-hooks-detail](https://res.cloudinary.com/dzmc7doja/image/upload/v1640762036/notes-imgcontent/react-hooks-2.png)
 
-## Express, GraphQL, and REST API 
+## Express, REST API and GraphQL 
+Express is a minimal, yet flexible web application framework. It's minimal in the sense that by itself, Express does very little. It relies on other modules called middleware to provide the functionality that most applications will need. Express at it's most minimal is a router. It essentially takes a client request, matches it against any that are present, and executes a handler function that is associated with that route. The handler function is expected to generate the appropriate response. 
+
+A route specification consist of :
+* a HTTP method (GET, POST, etc.) 
+* a path specification that matches the request URL 
+* and the route handler
+
+![httproutes](https://res.cloudinary.com/dzmc7doja/image/upload/v1640899280/notes-imgcontent/httpmethods.png)
+
+```javascript 
+// example routing and handler function 
+app.get('/hello', (req, res) => {
+  res.send('Hello world')
+})
+```
+
+The route's method and path don't need to be specific. If you want to match all HTTP methods, you could write `app.all()`. If you needed to match multiple paths, you could pass in an array of paths, a regular expression or use *route parameters*.  
+
+### Route Parameters 
+*Route Parameters* are named segments in the path specification that match a part of the URL. If a match occurs, the value in that part of the URL is supplied as a variable in request object. 
+
+```javascript
+// example of using route parameters in express 
+app.get('/customers/:customerId', ...)
+```
+
+In the above the example the `:/customerId` is being captured and supplied to the handler function as part of the request in `req.params`, with the name of the parameter as the key. Meaning that the URL `https://api.site.com/customers/1234` would provide 1234 as the `req.params.customerId`. Keep in mind that route parameters are matched in order of priority based on where they are declared in your code base. This does imply that Route Lookup is achievable when handling multiple routes, however specific paths should be declared ahead of more generic patterns in your `server.js` file. (i.e. a pattern like `/api/` or `/api/*` should be add after specific paths like `/api/issues` have been declared). 
+
 
 ## MongoDB
 
