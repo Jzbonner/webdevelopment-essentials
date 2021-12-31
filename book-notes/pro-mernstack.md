@@ -119,6 +119,11 @@ app.get('/customers/:customerId', ...)
 
 In the above the example the `:/customerId` is being captured and supplied to the handler function as part of the request in `req.params`, with the name of the parameter as the key. Meaning that the URL `https://api.site.com/customers/1234` would provide 1234 as the `req.params.customerId`. Keep in mind that route parameters are matched in order of priority based on where they are declared in your code base. This does imply that Route Lookup is achievable when handling multiple routes, however specific paths should be declared ahead of more generic patterns in your `server.js` file. (i.e. a pattern like `/api/` or `/api/*` should be add after specific paths like `/api/issues` have been declared). 
 
+Once a route is matched, the handler function is called. The handler function is not expected to return any value. But it can inspect the request object and send out a response as a part of the response object based on the request parameters. 
+
+**Request Object**
+* `req.params`: This is an object containing properties mapped to the named route parameters 
+* `req.query`: This holds a parsed query string. It's an object with keys as the query string parameters and values as the query string values.
 
 ## MongoDB
 
