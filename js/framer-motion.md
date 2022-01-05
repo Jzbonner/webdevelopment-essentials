@@ -23,7 +23,7 @@ Is a React Component built-into the `framer-motion` library. It will primarily b
 ```javascript
 //example JSX file that contains a motion.div element 
 import * as React from "react";
-import { motion } from "framer-motion";
+ mport { motion } from "framer-motion";
 
 export const Example = () => (
   <motion.div 
@@ -40,4 +40,26 @@ export const Example = () => (
 ```
 
 ### The `animation` prop 
-When any value in animate changes the component will automatically animate to the updated target. By default, Framer Motion creates an appropriate animation for a snappy transition based on the types of value sbeing animated. For instance, physical properties like `x` or `scale` will be animated using a *spring* simulation. Whereas values like `opacity` or `color` will be animated with a *tween* simulation. 
+When any value in animate changes the component will automatically animate to the updated target. By default, Framer Motion creates an appropriate animation for a snappy transition based on the types of value being animated. For instance, physical properties like `x` or `scale` will be animated using a *spring* simulation. Whereas values like `opacity` or `color` will be animated with a *tween* simulation. You can set different types of animations by passing a *transition* prop. 
+
+```javascript
+// example of using the animation prop 
+<motion.div 
+  animate={{ scale: 1.1 }}
+  transition={{ ease: "easeOut", duration: 2 }}
+/>
+
+```
+
+### `Gestures` and `MotionValue` 
+All `motion` components can detect *hover, tap, pan and drag* gestures. Framer motion allows you to attach gesture behaviors as event listeners directly to the component. Animation helpers are the entry point to working with Gestures in in Framer Motion. 
+
+```javascript 
+<motion.div 
+  whileHover={{
+    scale: 1.2,
+    transition: { duration: 1 }
+  }}
+  whileTap={{ scale: 0.9 }}
+/>
+```
