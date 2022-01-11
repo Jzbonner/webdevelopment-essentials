@@ -98,4 +98,18 @@ export const MyComponent = () => {
 4. Update visual properties without triggering React's render cycle
 
 ## Putting it all together
-There are a plethora of ways for which developers can include framer-motion in their projects. We will take a look at some useful tips for doing so in the section below. 
+There are a plethora of ways for which developers can include framer-motion in their projects. The goal of framer motion is to add interactivity to the client side of your web application. They are an excellent tool for breathing life and motion into static webpages and creating a lasting effect on user experience as they traverse your site. Some areas where animations provide the most added benefit are: 
+1. Navigation Animations -     
+2. Hover Animations -
+3. Progression and Loading Animations - 
+4. Call to Attention Animations -
+5. Skeleton Loading Animations -
+6. Visual Feedback Animations - 
+7. Creative Effects and Background Animations - 
+8. Galleries and Slideshow Animations - 
+9. Scrolling and Whole Page Animations -
+10. Dynamic Menus - 
+11. Welcoming Animations -
+
+### React Components as Motion Elements 
+Framer motion is packaged...
