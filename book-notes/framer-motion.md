@@ -250,5 +250,3 @@ There are a plethora of ways for which developers can include framer-motion in t
 10. Dynamic Menus - 
 11. Welcoming Animations -
 
-### React Components as Motion Elements 
-Framer motion is packaged...
