@@ -63,8 +63,10 @@ Outside of the pre-defined admin configuration options you will be able to
 alter base theme elements via the Injection Zones API. Strapi can use
 predefined inejection zones or custom injection zones created by a plugin. 
 
-## Admin Panel UI configuration
-
+## admin panel UI configuration
+Configuring your admin panel is important for branding consistency and
+enabling certain configuration layers based of user permissions and access
+rights. 
 
 ### theme collection for strapi backend 
 ```
