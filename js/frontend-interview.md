@@ -5,7 +5,7 @@ development space. Studying information science Uniersity allowed me the
 opportunity to develop strong foundations in data management, data retrieval,
 and web focused technologies."
 * Certifications 
-1. Microsoft Technology Associate 
+1. Microsoft Technology Associahttps://www.2bayshore.com/te 
 2. Microsoft Certified Technology Specialist
 * Prior Industry Experience
 1. I have first hand experience with moderate to large scale web app
@@ -16,9 +16,10 @@ and web focused technologies."
    I have provided to companies in the past.
 
 ## Talking Point: Project Scope 
-* Version Control
-* Project Management Tools
-* Team Collaboration 
+* Version Control (Github)
+* Project Management Tools (experience with Jira, Monday.com, Airtable)
+* Team Collaboration (Experience working with both remote teams, in-office
+teams and overseas teams) 
 * Test Driven Development (conceptual examples)
 
 ## Talking Point: Javascript Ecosystem 
@@ -98,7 +99,39 @@ and web focused technologies."
 * Link to Github: https://github.com/Jzbonner 
 * Link to personal website: https://jzbonner.me/
 * Link to Github Projects: https://github.com/users/Jzbonner/projects/5 
+### Link to corporate site: 
+* 2bayshore: https://www.2bayshore.com/
+* skyhousesouth: https://www.skyhousesouth.com/
+* silvercompanies: https://silvercompanies.com/
 
 ## Bonus Talking Points
 * Improvements to ajc.com 
+1. The use of a skeleton loader so that placeholder content is accuratley
+   represented and the user can have all the necessary content loaded in at
+   one time. 
+2. I think the image carousel's lack the ability to navigate through images
+   once enlarged; this could be dealt with by extending the capabilities of
+   the lightbox modal
 * Improvements to dawgnation.com 
+1. I would love to modernize the forum section on the website 
+2. There are a number of internal server errors for exposed routes on the
+   "Roster" page, I would come up with a default response page if there aren't
+   any articles or additional details available for the player
+3. The Men's Baseball and Basketball pages still shows Football related
+   information on the sidebar. 
+
+## Questions for Company
+1. How is the team dynamic across different departments (i.e. developers and
+   designers)? 
+2. Are there opportunities for growth? Leadership roles? Client facing
+   interactions? 
+3. What technology tools do you all use (i.e. Design tools like Figma?
+   Project management tools like Airtable, Monday, etc? Team communication
+   tools like slack, microsoft teams, etc?) 
+4. How is the work life balance (i.e. is it a fully remote position can I come
+   into the office to work on a periodic basis)?
+5. Are you looking for a developer that can wear multiple hats or just
+   a developer that is dedicated to their position and role in the company?
+6. Do you all have team bonding activities? 
+7. Are there any hardware requirements for being a part of the team (do yall
+   prefer Windows over Mac or vice versa)?

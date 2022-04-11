@@ -105,3 +105,7 @@ theme: {
     },
 ```
 
+## Workflow 
+You want to use your production environment as a non-configurable backend for
+content management and you want to make changes to that environment (i.e.
+adding Content Types) in a development/staging environment.
